@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React from 'react'
+
 import dltImage from "../../../public/DLTHUB WHITE 1.png"
 
 const Nav = () => {
