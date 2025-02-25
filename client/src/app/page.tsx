@@ -13,7 +13,7 @@ import Testimonial from "./components/Testimonial";
 
 export default function Home() {
   return (
-   <main className=" font-poppins justify-center relative pt-[50px] ">
+   <main className=" font-poppins justify-center relative pt-[50px] scrollbar-hide ">
   
  
   <div className="absolute inset-0 -z-10">

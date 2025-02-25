@@ -32,6 +32,7 @@ body {
 
 .input-radial{
   background-image:  linear-gradient(to top right, #171917 , #1719179f);
+
 }
 
 
@@ -66,6 +67,20 @@ body {
   background-repeat: no-repeat;
 background-position-y: 100%;
 
+}
+
+.theSize{
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-y: 30%;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; 
 }
 
 

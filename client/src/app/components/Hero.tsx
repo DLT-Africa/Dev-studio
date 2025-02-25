@@ -17,10 +17,10 @@ const Hero = () => {
     offset: ["start end", "end start"],
   })
 
-  // Only keep scale transform, remove opacity
+  
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8])
 
-  // Spark animation variants
+ 
   const sparkVariants = {
     hidden: {
       opacity: 0,
@@ -40,7 +40,7 @@ const Hero = () => {
   return (
     <motion.section
       ref={ref}
-      style={{ scale }} // Remove opacity from here
+      style={{ scale }} 
       className="font-poppins w-full flex flex-col items-center gap-[25px] relative "
     >
       <div className="flex items-center justify-between w-full relative top-[-150px]">
@@ -56,7 +56,7 @@ const Hero = () => {
           transition={{ duration: 1 }}
         >
           <div className="relative w-full py-[50px]">
-            {/* Top Spark */}
+          
             <motion.div
               className="absolute top-6 left-[40%]"
               initial="hidden"
@@ -78,7 +78,7 @@ const Hero = () => {
               </motion.div>
             </motion.div>
 
-            {/* Title with glow effect */}
+          
             <motion.h1
               className="font-semibold text-[64px] text-[#FC7C13] text-center relative"
               initial={{ opacity: 0, y: 20 }}
@@ -92,7 +92,7 @@ const Hero = () => {
               DLT HUB
             </motion.h1>
 
-            {/* Bottom Spark */}
+          
             <motion.div
               className="absolute bottom-6 right-[40%]"
               initial="hidden"
@@ -165,7 +165,7 @@ const Hero = () => {
           />
           <span className="relative z-10">Grow with us</span>
 
-          {/* Button glow effect */}
+         
           <motion.div
             className="absolute inset-0 -z-10"
             animate={{

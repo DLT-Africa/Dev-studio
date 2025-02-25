@@ -21,7 +21,8 @@ export default {
       backgroundImage: {
         "custom-radial": "radial-gradient(circle, #2bb102, #0B2F01 80%)",
         "input-gradient": "(circle, #2bb102, #0B2F01 80%)",
-        'footer-bg': "url('/footerbg.png')"
+        'footer-bg': "url('/footerbg.png')",
+        'spinning-bg': "url('/spinnigbg.png')",
       },
       animation: {
         "infinite-scroll": "infinite-scroll 25s linear infinite",

@@ -11,7 +11,7 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
 
-  // Handle clicks outside the sidebar to close it
+ 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
@@ -39,19 +39,19 @@ const Sidebar = () => {
           isOpen ? "border-none" : "border-[1px]"
         }`}
       >
-        {/* Outer circle blurred background (only visible when modal is open) */}
+        
         {isOpen && (
           <div className="absolute inset-0 rounded-full bg-[#000000] blur-lg"></div>
         )}
 
-        {/* Outer circle content layer */}
+        
         <div className="relative z-10 flex items-center">
           <HiMenuAlt3
             className="text-[50px] text-[#FC7C13] cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
           />
 
-          {/* Inner circle */}
+         
           <motion.div
             initial={{ x: -200, scale: 0, opacity: 0 }}
             animate={{
@@ -62,9 +62,9 @@ const Sidebar = () => {
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
             className="w-[635px] h-[582px] rounded-full bg-[#000000] absolute left-[-80px] shadow-lg flex items-center justify-center relative"
           >
-            {/* Inner circle blurred background */}
+           
             <div className="absolute inset-0 rounded-full bg-[#000000] blur-lg"></div>
-            {/* Inner circle content layer */}
+         
             <nav className="relative z-10 w-full h-full rounded-full flex items-center justify-start px-[37px] gap-[112px]">
               <HiMenuAlt3
                 className="text-[50px] text-[#FC7C13] cursor-pointer"

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import illustration from "../../../public/travel _ travelling, airplane, aeroplane, plane, flight, choose, choice, man, people.png";
 
 const YourIdea = () => {
-  // Animation variants
+
   const formFieldVariants = {
     hidden: { opacity: 0, x: -50 },
     visible: { 
@@ -37,7 +37,7 @@ const YourIdea = () => {
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}
     >
-      {/* Ambient background effects */}
+      
       <motion.div 
         className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full"
         animate={{
@@ -58,7 +58,7 @@ const YourIdea = () => {
         }}
       />
 
-      {/* Form Section */}
+   
       <motion.div 
         className="pl-[50px] flex flex-col items-start justify-center gap-[20px] relative "
         variants={{
@@ -105,7 +105,7 @@ const YourIdea = () => {
           }}
         >
           <motion.div className="flex flex-col items-start gap-[10px]">
-            {/* Full Name Field */}
+           
             <motion.div 
               className="flex flex-col items-start gap-[20px]"
               variants={formFieldVariants}
@@ -123,7 +123,7 @@ const YourIdea = () => {
               />
             </motion.div>
 
-            {/* Email Field */}
+            
             <motion.div 
               className="flex flex-col items-start gap-[20px]"
               variants={formFieldVariants}
@@ -141,7 +141,7 @@ const YourIdea = () => {
               />
             </motion.div>
 
-            {/* Message Field */}
+          
             <motion.div 
               className="flex flex-col items-start gap-[20px]"
               variants={formFieldVariants}
@@ -153,14 +153,14 @@ const YourIdea = () => {
                 name="reason"
                 id="reason"
                 placeholder="message..."
-                rows={2}
-                className="font-normal text-[#7B8B76] text-[16px] input-radial p-[10px] cursor-pointer rounded-[10px] w-[471px] h-[55px] border-[#464646] border-[1px]"
+                
+                className="font-normal h-[77px] text-[#7B8B76] text-[16px] input-radial p-[10px] cursor-pointer rounded-[10px] w-[471px]  border-[#464646] border-[1px]"
                 whileFocus={{ scale: 1.02 }}
               />
             </motion.div>
           </motion.div>
 
-          {/* Submit Button */}
+         
           <motion.button
             type="submit"
             className="bg-buttonOrange w-[196px] h-[55px] rounded-[10px]"

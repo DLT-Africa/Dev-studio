@@ -31,7 +31,7 @@ const Partners = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Bloom Effect */}
+     
       <motion.div
         className="fixed left-[-20%] bottom-[-2%] w-[1000px] h-[1000px] custom-radial blur-[100px] z-[-1] rounded-[50%]"
         initial={{ opacity: 0 }}
@@ -39,7 +39,7 @@ const Partners = () => {
         transition={{ duration: 0.5 }}
       />
 
-      {/* Heading Section */}
+    
       <motion.div
         className="flex flex-col items-center w-full gap-[25px]"
         variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
@@ -55,7 +55,7 @@ const Partners = () => {
         </motion.h1>
       </motion.div>
 
-      {/* Infinite Scrolling Partners */}
+   
       <div className="relative w-full overflow-hidden py-10">
         <div className="flex w-max animate-infinite-scroll">
           {[...partners, ...partners].map((partner, index) => (

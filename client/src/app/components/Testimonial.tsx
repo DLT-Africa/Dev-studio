@@ -10,7 +10,7 @@ const Testimonial = () => {
     { name: "Kotani Pay", testimony: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis." },
   ];
 
-  // Duplicate testimonials for seamless scrolling
+ 
   const scrollingTestimonials = [...Testimonials, ...Testimonials];
 
   return (
@@ -20,7 +20,7 @@ const Testimonial = () => {
         <h1 className="text-[48px] font-semibold text-[#F7FCFE] text-center capitalize">TESTIMONIALS</h1>
       </div>
 
-      {/* Auto-scrolling Testimonials */}
+    
       <div className="relative w-full overflow-hidden">
         <div className="flex gap-[48px] animate-marquee">
           {scrollingTestimonials.map((testimonial, index) => (
