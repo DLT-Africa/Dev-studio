@@ -8,7 +8,6 @@ import Testimonial from "../components/Testimonial";
 import GetAQuoteForm from "../components/GetAQuoteForm";
 import PersonalInfo from "../components/PersonalInfo";
 
-
 const formVariants = {
   initial: { opacity: 0, x: 50 },
   animate: { opacity: 1, x: 0, transition: { duration: 0.4 } },
@@ -16,12 +15,10 @@ const formVariants = {
 };
 
 const Page = () => {
- 
   const [currentForm, setCurrentForm] = useState("quote");
 
- 
   const [formData, setFormData] = useState({
-    quote: { tags: "", doc: "", description: "" },
+    quote: { tags: "", docs: [""], description: "" }, 
     personal: {
       fullName: "",
       country: "",
@@ -33,6 +30,8 @@ const Page = () => {
     },
   });
 
+  console.log("Current formData state:", formData);
+
   const updateQuoteData = (data) => {
     setFormData((prev) => ({ ...prev, quote: { ...prev.quote, ...data } }));
   };
@@ -43,12 +42,10 @@ const Page = () => {
 
   return (
     <main className="font-poppins justify-center relative pt-[50px]">
-    
       <div className="absolute inset-0 -z-10">
         <div className="fixed right-[-20%] bottom-[-20%] w-[1000px] h-[1200px] custom-radial opacity-40 blur-3xl rounded-[50%]"></div>
       </div>
 
-   
       <AnimatePresence mode="wait">
         {currentForm === "quote" && (
           <motion.div key="quote" variants={formVariants} initial="initial" animate="animate" exit="exit">
@@ -71,7 +68,6 @@ const Page = () => {
         )}
       </AnimatePresence>
 
-    
       <div className="w-full relative overflow-hidden">
         <Image
           src={spining}

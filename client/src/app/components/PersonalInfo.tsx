@@ -1,6 +1,7 @@
 "use client";
 
 import { IoArrowBack } from "react-icons/io5";
+
 import { motion } from "framer-motion";
 
 const PersonalInfo = ({ initialData, updateData, onBack }) => {

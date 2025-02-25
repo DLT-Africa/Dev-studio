@@ -48,7 +48,7 @@ const Hero = () => {
         <Lottie animationData={heroAnimationRight} />
       </div>
 
-      <div className="heroText absolute top-[500px] w-full flex flex-col items-center">
+      <div className="heroText absolute top-[500px] gap-[25px] w-full flex flex-col items-center">
         <motion.div
           className="w-full flex flex-col items-center gap-[15px]"
           initial={{ opacity: 0, y: 50 }}
