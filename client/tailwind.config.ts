@@ -8,9 +8,30 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        openSans: ["Open Sans", "sans-serif"],
+        sourceSans: ["Source Sans 3", "sans-serif"], // ✅ Corrected to "Source Sans 3"
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        buttonOrange: "#FC7C13",
+      },
+      backgroundImage: {
+        "custom-radial": "radial-gradient(circle, #2bb102, #0B2F01 80%)",
+        "input-gradient": "(circle, #2bb102, #0B2F01 80%)",
+        'footer-bg': "url('/footerbg.png')",
+        'spinning-bg': "url('/spinnigbg.png')",
+      },
+      animation: {
+        "infinite-scroll": "infinite-scroll 25s linear infinite",
+      },
+      keyframes: {
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
       },
     },
   },
