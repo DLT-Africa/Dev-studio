@@ -46,7 +46,6 @@ exports.suggestIdea = async (req, res) => {
   }
 };
 
-
 exports.getIdea = async (req, res) => {
   try {
     const { id } = req.params;
@@ -86,12 +85,11 @@ exports.getIdeas = async (req, res) => {
 
 exports.deleteIdea = async (req, res) => {
   try {
-    const  {ideaId}  = req.params;
-    console.log(ideaId)
+    const { ideaId } = req.params;
+    console.log(ideaId);
     const idea = await Idea.findById(ideaId);
-  
 
-    console.log(idea)
+    console.log(idea);
 
     if (!idea) {
       return res.status(404).json({
@@ -101,7 +99,9 @@ exports.deleteIdea = async (req, res) => {
     }
 
     await idea.deleteOne();
-    res.status(200).json({ success: true, message: "Idea deleted successfully" });
+    res
+      .status(200)
+      .json({ success: true, message: "Idea deleted successfully" });
   } catch (error) {
     console.error("Error deleting idea:", error);
     res.status(500).json({
