@@ -54,7 +54,7 @@ const Page = () => {
    
   const fullPhoneNumber = `(${formData.personal.dialCode}) ${formData.personal.phoneNo}`;
 
-  console.log(fullPhoneNumber)
+  // console.log(fullPhoneNumber)
 
   const handleFinalSubmit = (e) => {
     e.preventDefault();
@@ -82,7 +82,7 @@ const Page = () => {
   
   
     axios
-      .post("http://localhost:5000/api/v1/projects/regProject", {
+      .post("https://dev-studio-phi.vercel.com/api/v1/projects/regProject", {
         tags: formData.tags,
         projectDoc: formData.docs,
         description: formData.description,
