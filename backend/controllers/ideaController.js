@@ -15,9 +15,21 @@ exports.suggestIdea = async (req, res) => {
       text: `Hello ${fullName},\n\nThank you for your suggestion! Our team will review it and get back to you as soon as possible.\n\nBest regards,\nDLT Africa Team`,
     };
 
-    await sendEmail(mailOptions).catch((error) =>
-      console.error("Error sending email:", error)
-    );
+    const notifyOptions = {
+      from: process.env.EMAIL_USER,
+      to: "info@dltafrica.io",
+      subject: "New Idea Submission",
+      text: `A new idea has been submitted:\n\nName: ${fullName}\nEmail: ${emailAddress}\nIdea: ${why}\n\nPlease review the suggestion in the system.`,
+    };
+
+    await Promise.all([
+      sendEmail(mailOptions).catch((error) =>
+        console.error("Error sending idea confirmation email:", error)
+      ),
+      sendEmail(notifyOptions).catch((error) =>
+        console.error("Error sending idea notification email:", error)
+      ),
+    ]);
 
     res.status(201).json({
       success: true,
@@ -33,6 +45,7 @@ exports.suggestIdea = async (req, res) => {
     });
   }
 };
+
 
 exports.getIdea = async (req, res) => {
   try {
@@ -73,8 +86,12 @@ exports.getIdeas = async (req, res) => {
 
 exports.deleteIdea = async (req, res) => {
   try {
-    const { id } = req.params;
-    const idea = await Idea.findById(id);
+    const  {ideaId}  = req.params;
+    console.log(ideaId)
+    const idea = await Idea.findById(ideaId);
+  
+
+    console.log(idea)
 
     if (!idea) {
       return res.status(404).json({

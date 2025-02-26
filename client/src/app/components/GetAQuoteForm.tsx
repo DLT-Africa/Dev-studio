@@ -51,11 +51,7 @@ const GetAQuoteForm = ({ initialData, updateData, onContinue }) => {
           </label>
           <AnimatePresence>
             {initialData.docs.map((doc, index) => (
-              <motion.div
-                key={index}
-                {...inputAnimation}
-                className="relative"
-              >
+              <motion.div key={index} {...inputAnimation} className="relative">
                 <input
                   placeholder="Add link to external documents, photos, sites, videos, and presentation"
                   type="text"
@@ -69,7 +65,7 @@ const GetAQuoteForm = ({ initialData, updateData, onContinue }) => {
                     initialData.docs.length > 1 ? "pl-[45px]" : ""
                   } pr-[45px] rounded-[10px] outline-none h-[55px] border-[#464646] border-[1px] w-full`}
                 />
-                {/* Delete Button: Only show if more than one input exists */}
+                {/* Delete Button (only if there's more than one input) */}
                 {initialData.docs.length > 1 && (
                   <button
                     type="button"
@@ -82,14 +78,14 @@ const GetAQuoteForm = ({ initialData, updateData, onContinue }) => {
                     <IoMdClose className="text-red-500 text-[24px]" />
                   </button>
                 )}
-                {/* Add Button: Only on the last input */}
+                {/* Add Button (only on the last input) */}
                 {index === initialData.docs.length - 1 && (
                   <button
                     type="button"
                     onClick={() => updateData({ docs: [...initialData.docs, ""] })}
                     className="absolute right-3 top-1/2 transform -translate-y-1/2"
                   >
-                    <IoMdAdd className="text-[#Ffff] text-[24px]" />
+                    <IoMdAdd className="text-[#FC7C13] text-[24px]" />
                   </button>
                 )}
               </motion.div>

@@ -6,7 +6,8 @@ const connectDB = require("./config/DBconnect");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-
+const ideaRoutes = require("./routes/ideasRoute");
+const projectRoutes = require("./routes/projectRoutes");
 const mongoose = require("mongoose");
 
 const app = express();
@@ -44,13 +45,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 
-
+// Routes
+app.use("/api/v1/idea", ideaRoutes);
+app.use("/api/v1/projects", projectRoutes);
 
 app.get("/", (req, res) => {
   res.send("Home Page");
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 6000;
 
 connectDB();
 

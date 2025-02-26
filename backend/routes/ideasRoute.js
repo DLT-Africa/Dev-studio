@@ -7,15 +7,15 @@ const router = express.Router();
 
 
 
-router.post("/register", register);
+router.post("/suggestIdea", suggestIdea);
 
-router.get("/talents", getTalents);
+router.get("/getIdeas", getIdeas);
 
-router.get("/talent/:id", getTalent);
+router.get("/getIdea/:id", getIdea);
 
-router.put('/:talentId', updateTalent);
 
-router.delete('/:talentId', deleteTalent);
+
+router.delete('/:ideaId', deleteIdea);
 
 
 module.exports = router;

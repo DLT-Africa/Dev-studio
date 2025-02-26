@@ -1,6 +1,6 @@
 const express = require("express");
 const { 
-  submitProject, 
+  registerProject, 
   getProject, 
   getProjects, 
   deleteProject 
@@ -8,9 +8,9 @@ const {
 
 const router = express.Router();
 
-router.post("/submit", submitProject);
+router.post("/regProject", registerProject);
 router.get("/projects", getProjects);
 router.get("/project/:id", getProject);
-router.delete("/project/:id", deleteProject);
+router.delete("/:projectId", deleteProject);
 
 module.exports = router;

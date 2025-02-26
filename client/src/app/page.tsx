@@ -1,19 +1,19 @@
 "use client";
 import Image from "next/image";
-import Nav from "./components/Nav";
 import { motion } from "framer-motion";
 import Hero from "./components/Hero";
-
 import Services from "./components/Services";
 import Partners from "./components/Partners";
 import YourIdea from "./components/YourIdea";
 import Testimonial from "./components/Testimonial";
+import Layout from "./components/Layout";
 
 
 
 export default function Home() {
   return (
-   <main className=" font-poppins justify-center relative pt-[50px] scrollbar-hide ">
+ <Layout>
+    <main className=" font-poppins justify-center relative pt-[50px] scrollbar-hide ">
   
  
   <div className="absolute inset-0 -z-10">
@@ -30,6 +30,7 @@ export default function Home() {
  
 
 </main>
+ </Layout>
 
   );
 }

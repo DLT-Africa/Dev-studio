@@ -20,9 +20,21 @@ exports.registerProject = async (req, res) => {
       text: `Hello ${personalInfo.fullName},\n\nThank you for submitting your project! Our team will review it and get back to you as soon as possible.\n\nBest regards,\nDLT Africa Team`,
     };
 
-    await sendEmail(mailOptions).catch((error) =>
-      console.error("Error sending email:", error)
-    );
+    const notifyOptions = {
+      from: process.env.EMAIL_USER,
+      to: "info@dltafrica.io",
+      subject: "New Project Submission",
+      text: `A new project has been submitted:\n\nName: ${personalInfo.fullName}\nEmail: ${personalInfo.email}\nDescription: ${description}\nTags: ${Array.isArray(tags) ? tags.join(", ") : tags}\n\nPlease review the project in the system.`,
+    };
+
+    await Promise.all([
+      sendEmail(mailOptions).catch((error) =>
+        console.error("Error sending project confirmation email:", error)
+      ),
+      sendEmail(notifyOptions).catch((error) =>
+        console.error("Error sending project notification email:", error)
+      ),
+    ]);
 
     res.status(201).json({
       success: true,
@@ -38,6 +50,7 @@ exports.registerProject = async (req, res) => {
     });
   }
 };
+
 
 exports.getProject = async (req, res) => {
   try {
@@ -75,8 +88,8 @@ exports.getProjects = async (req, res) => {
 
 exports.deleteProject = async (req, res) => {
   try {
-    const { id } = req.params;
-    const project = await Project.findById(id);
+    const { projectId } = req.params;
+    const project = await Project.findById(projectId);
 
     if (!project) {
       return res.status(404).json({ success: false, message: "Project not found" });

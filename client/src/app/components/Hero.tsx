@@ -7,6 +7,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion"
 import Lottie from "lottie-react"
 import heroAnimationLeft from "../jsonData/Left side.json"
 import heroAnimationRight from "../jsonData/Right side.json"
+import { useRouter } from "next/navigation"
 
 const Hero = () => {
   const ref = useRef(null)
@@ -17,10 +18,8 @@ const Hero = () => {
     offset: ["start end", "end start"],
   })
 
-  
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8])
 
- 
   const sparkVariants = {
     hidden: {
       opacity: 0,
@@ -37,11 +36,13 @@ const Hero = () => {
     },
   }
 
+  const router = useRouter();
+
   return (
     <motion.section
       ref={ref}
       style={{ scale }} 
-      className="font-poppins w-full flex flex-col items-center gap-[25px] relative "
+      className="font-poppins w-full flex flex-col items-center gap-[25px] relative"
     >
       <div className="flex items-center justify-between w-full relative top-[-150px]">
         <Lottie animationData={heroAnimationLeft} style={{ width: "900px" }} />
@@ -56,7 +57,6 @@ const Hero = () => {
           transition={{ duration: 1 }}
         >
           <div className="relative w-full py-[50px]">
-          
             <motion.div
               className="absolute top-6 left-[40%]"
               initial="hidden"
@@ -74,11 +74,14 @@ const Hero = () => {
                   ease: "easeInOut",
                 }}
               >
-                <Image src={fireCrackSpark || "/placeholder.svg"} alt="Top Spark" className="filter brightness-110" />
+                <Image 
+                  src={fireCrackSpark || "/placeholder.svg"} 
+                  alt="Top Spark" 
+                  className="filter brightness-110" 
+                />
               </motion.div>
             </motion.div>
 
-          
             <motion.h1
               className="font-semibold text-[64px] text-[#FC7C13] text-center relative"
               initial={{ opacity: 0, y: 20 }}
@@ -92,7 +95,6 @@ const Hero = () => {
               DLT HUB
             </motion.h1>
 
-          
             <motion.div
               className="absolute bottom-6 right-[40%]"
               initial="hidden"
@@ -120,9 +122,9 @@ const Hero = () => {
           </div>
 
           <motion.p
-            className="font-medium text-[18px] text-[#F7FCFE] text-center  "
+            className="font-medium text-[18px] text-[#F7FCFE] text-center"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }} // Remove isInView condition for better visibility
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             A full-service digital agency focused on creativity and result-driven solutions.
@@ -132,7 +134,7 @@ const Hero = () => {
         <motion.h1
           className="font-semibold text-[64px] text-[#F7FCFE] text-center"
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }} // Remove isInView condition for better visibility
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
           whileHover={{
             textShadow: "0 0 15px rgba(247, 252, 254, 0.3)",
@@ -143,10 +145,9 @@ const Hero = () => {
 
         <motion.button
           className="relative overflow-hidden bg-[#FC7C13] px-[46.5px] py-[18px] rounded-[10px] font-medium text-[16px] text-[#F7FCFE] text-center group"
-          whileHover={{
-            scale: 1.05,
-          }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => router.push("/quote")}
         >
           <motion.div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -164,8 +165,6 @@ const Hero = () => {
             }}
           />
           <span className="relative z-10">Grow with us</span>
-
-         
           <motion.div
             className="absolute inset-0 -z-10"
             animate={{
@@ -188,4 +187,3 @@ const Hero = () => {
 }
 
 export default Hero
-
