@@ -16,12 +16,15 @@ const partners = [
   { image: lisk, name: "Lisk" },
   { image: celo, name: "Celo" },
   { image: canza, name: "Canza" },
-  { image: bitmama, name: "Bitmama" }
+  { image: bitmama, name: "Bitmama" },
 ];
 
 const Partners = () => {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { margin: "-100px 0px", once: false });
+  const isInView = useInView(containerRef, {
+    margin: "-100px 0px",
+    once: false,
+  });
 
   return (
     <motion.div
@@ -31,7 +34,6 @@ const Partners = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-     
       <motion.div
         className="fixed left-[-20%] bottom-[-2%] w-[1000px] h-[1000px] custom-radial blur-[100px] z-[-1] rounded-[50%]"
         initial={{ opacity: 0 }}
@@ -39,25 +41,32 @@ const Partners = () => {
         transition={{ duration: 0.5 }}
       />
 
-    
       <motion.div
         className="flex flex-col items-center w-full gap-[25px]"
-        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0 },
+        }}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         transition={{ duration: 0.6 }}
       >
-        <motion.p className="font-medium text-[16px] text-[#FEA650] font-poppins" whileHover={{ scale: 1.05 }}>
+        <motion.p
+          className="font-medium text-[16px] text-[#FEA650] font-poppins"
+          whileHover={{ scale: 1.05 }}
+        >
           Our partners
         </motion.p>
-        <motion.h1 className="capitalize text-[#F7FCFE] text-[40px] font-semibold text-center" whileHover={{ textShadow: "0 0 8px rgba(247, 252, 254, 0.3)" }}>
+        <motion.h1
+          className="capitalize text-[#F7FCFE] text-[40px] font-semibold text-center"
+          whileHover={{ textShadow: "0 0 8px rgba(247, 252, 254, 0.3)" }}
+        >
           MEET OUR COLLABORATORS
         </motion.h1>
       </motion.div>
 
-   
-      <div className="relative w-full overflow-hidden py-10">
-        <div className="flex w-max animate-infinite-scroll">
+      <div className="w-full overflow-hidden relative mt-[35px]">
+        <div className="flex w-max animate-infinite-scroll whitespace-nowrap">
           {[...partners, ...partners].map((partner, index) => (
             <motion.div
               key={index}
@@ -67,15 +76,35 @@ const Partners = () => {
             >
               <Image
                 src={partner.image}
-                width={200} 
+                width={200}
                 height={100}
-                alt={partner.name}
-                className="object-contain w-full h-full"
+                alt="alternative text"
+                className={
+                  partner.name === "Canza" || partner.name === "Kotani"
+                    ? "h-[120px] w-auto"
+                    : "h-[50px] w-auto "
+                }
               />
             </motion.div>
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-infinite-scroll {
+          display: flex;
+          animation: scroll 20s linear infinite;
+        }
+      `}</style>
     </motion.div>
   );
 };
