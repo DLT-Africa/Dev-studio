@@ -7,6 +7,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const ideaRoutes = require("./routes/ideasRoute");
+const newsLetterRoutes = require("./routes/newsLetterRoute");
 const projectRoutes = require("./routes/projectRoutes");
 const mongoose = require("mongoose");
 
@@ -48,6 +49,7 @@ app.use(bodyParser.json());
 // Routes
 app.use("/api/v1/idea", ideaRoutes);
 app.use("/api/v1/projects", projectRoutes);
+app.use("/api/v1/newsLetter", newsLetterRoutes);
 
 app.get("/", (req, res) => {
   res.send("Home Page");

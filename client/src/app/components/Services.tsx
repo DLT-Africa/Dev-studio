@@ -123,6 +123,7 @@ const Services = () => {
 
   return (
     <section
+      
       ref={ref}
       className="font-poppins w-full flex flex-col pt-[62px] px-[50px] gap-[51px] min-h-screen pb-[100px] scrollbar-hide"
     >
