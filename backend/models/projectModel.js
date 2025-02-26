@@ -2,20 +2,18 @@ const mongoose = require("mongoose");
 
 const projectSchema = new mongoose.Schema(
   {
-    // Fields from GetAQuoteForm
     tags: {
       type: String,
       required: true,
     },
     projectDoc: {
-      type: String,
+      type: [String], // Updated to array of strings
       required: true,
     },
     description: {
       type: String,
       required: true,
     },
-    
     personalInfo: {
       fullName: {
         type: String,
@@ -32,7 +30,6 @@ const projectSchema = new mongoose.Schema(
       calendly: {
         type: String,
         required: true,
-        
       },
       phoneNo: {
         type: String,
@@ -40,11 +37,9 @@ const projectSchema = new mongoose.Schema(
       },
       linkedIn: {
         type: String,
-      
       },
       twitter: {
         type: String,
-       
       },
     },
   },

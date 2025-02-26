@@ -1,16 +1,18 @@
 
 
 
+import Lottie from "lottie-react";
 import dltImage from "../../../public/dltfooter.png";
 import Image from "next/image";
 import { BsTwitterX } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import footerAnimation from "../jsonData/Footer darker.json"
 
 
 const Footer = () => {
   return (
-    <footer className="h-[582px] w-full border-t-[#3BF500] border-t-[1px] px-[78px] py-[84px] bg-[#000000] bg-footer-bg background font-poppins">
+    <footer className="h-[582px] w-full border-t-[#3BF500] border-t-[1px] px-[78px] py-[84px] relative bg-[#000000] bg-footer-bg background font-poppins">
 
 
       <div className="flex items-start gap-[187px]">
@@ -70,6 +72,16 @@ const Footer = () => {
         </form>
 
         </div>
+      </div>
+
+      <div className="w-[478px] h-[478px] absolute bottom-[25px] right-0">
+      <Lottie
+                animationData={footerAnimation}
+                style={{ width: "100%", height: "100%" }}
+                loop
+                autoplay
+                className="relative left-[-45px]"
+              />
       </div>
     </footer>
   );
