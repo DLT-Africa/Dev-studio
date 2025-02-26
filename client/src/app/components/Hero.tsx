@@ -74,11 +74,13 @@ const Hero = () => {
                   ease: "easeInOut",
                 }}
               >
+
                 <Image 
                   src={fireCrackSpark || "/placeholder.svg"} 
                   alt="Top Spark" 
                   className="filter brightness-110" 
                 />
+            
               </motion.div>
             </motion.div>
 
