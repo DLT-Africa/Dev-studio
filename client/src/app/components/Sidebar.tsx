@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { RiHome6Line } from "react-icons/ri";
@@ -11,7 +12,6 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
 
- 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
@@ -39,19 +39,16 @@ const Sidebar = () => {
           isOpen ? "border-none" : "border-[1px]"
         }`}
       >
-        
         {isOpen && (
           <div className="absolute inset-0 rounded-full bg-[#000000] blur-lg"></div>
         )}
 
-        
         <div className="relative z-10 flex items-center">
           <HiMenuAlt3
             className="text-[50px] text-[#FC7C13] cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
           />
 
-         
           <motion.div
             initial={{ x: -200, scale: 0, opacity: 0 }}
             animate={{
@@ -62,27 +59,33 @@ const Sidebar = () => {
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
             className="w-[635px] h-[582px] rounded-full bg-[#000000] absolute left-[-80px] shadow-lg flex items-center justify-center relative"
           >
-           
             <div className="absolute inset-0 rounded-full bg-[#000000] blur-lg"></div>
-         
+
             <nav className="relative z-10 w-full h-full rounded-full flex items-center justify-start px-[37px] gap-[112px]">
               <HiMenuAlt3
                 className="text-[50px] text-[#FC7C13] cursor-pointer"
                 onClick={() => setIsOpen(!isOpen)}
               />
+
               <div className="w-[302px] text-[22px] font-bold font-poppins text-[#FC7C13] flex flex-col gap-[75px]">
-                <div className="w-full flex items-center justify-between">
-                  <p>Home</p>
-                  <RiHome6Line />
-                </div>
-                <div className="w-full flex items-center justify-between">
-                  <p>Services</p>
-                  <HiCog />
-                </div>
-                <div className="w-full flex items-center justify-between">
-                  <p>Portfolio</p>
-                  <PiFolderFill />
-                </div>
+                <Link href="/" passHref>
+                  <div className="w-full flex items-center justify-between cursor-pointer">
+                    <p>Home</p>
+                    <RiHome6Line />
+                  </div>
+                </Link>
+                <Link href="/#services" passHref>
+                  <div className="w-full flex items-center justify-between cursor-pointer">
+                    <p>Services</p>
+                    <HiCog />
+                  </div>
+                </Link>
+                <Link href="/portfolio" passHref>
+                  <div className="w-full flex items-center justify-between cursor-pointer">
+                    <p>Portfolio</p>
+                    <PiFolderFill />
+                  </div>
+                </Link>
               </div>
             </nav>
           </motion.div>

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import spinning from "../../../public/spinnigbg.png";
 
+
 const Page = () => {
   const router = useRouter();
 
