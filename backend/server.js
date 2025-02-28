@@ -10,6 +10,7 @@ const ideaRoutes = require("./routes/ideasRoute");
 const newsLetterRoutes = require("./routes/newsLetterRoute");
 const projectRoutes = require("./routes/projectRoutes");
 const mongoose = require("mongoose");
+const testimonyRoutes = require("./routes/testimonyRoutes");
 
 const app = express();
 
@@ -49,6 +50,7 @@ app.use(bodyParser.json());
 app.use("/api/v1/idea", ideaRoutes);
 app.use("/api/v1/projects", projectRoutes);
 app.use("/api/v1/newsLetter", newsLetterRoutes);
+app.use("/api/v1/testimonials", testimonyRoutes);
 
 app.get("/", (req, res) => {
   res.send("Home Page");
