@@ -18,6 +18,7 @@ const allowedOrigins = [
   "*",
   "http://localhost:3000",
   "https://dltafrica.io",
+  "https://dlthub.io",
 ];
 
 app.use(
